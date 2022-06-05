@@ -9,23 +9,35 @@
   <ng-template pTemplate="content">
 
     <div class="grid grid-nogutter justify-content-between">
-      <div *ngIf="profile?.info; else noInfo">
-        <div class="field">
-          <p for="class">Amount: <strong>{{profile?.info?.amount}}</strong></p>
-        </div>
-        <div class="field">
-          <p for="class">Date: <strong>{{profile?.info?.date | date}}</strong></p>
-        </div>
-        <div class="field">
-          <p for="class">Status: <strong>{{profile?.info?.status | StatusAsStringPipe:status}}</strong></p>
-        </div>
-        <div class="field">
-          <p for="class">Fund name: <strong>{{profile?.info?.fund}}</strong></p>
-        </div>
+      <div class="col-12">
+
+        <p-panel header="User Selected">
+          <p class="m-0">Full Name: <strong>{{profile?.user?.name}}</strong></p>
+          <p class="m-0">Email: <strong>{{profile?.user?.email}}</strong></p>
+          <p class="m-0">Phone: <strong>{{profile?.user?.phone}}</strong></p>
+          <p class="m-0">City: <strong>{{profile?.user?.address?.city}}</strong></p>
+        </p-panel>
+
+        <p-panel header="Bill Details">
+          <div *ngIf="profile?.info; else noInfo">
+            <div class="field">
+              <p for="class">Amount: <strong>{{profile?.info?.amount}}</strong></p>
+            </div>
+            <div class="field">
+              <p for="class">Date: <strong>{{profile?.info?.date | date}}</strong></p>
+            </div>
+            <div class="field">
+              <p for="class">Status: <strong>{{profile?.info?.status | StatusAsStringPipe:status}}</strong></p>
+            </div>
+            <div class="field">
+              <p for="class">Fund name: <strong>{{profile?.info?.fund}}</strong></p>
+            </div>
+          </div>
+          <ng-template #noInfo>
+            <p>No Data!</p>
+          </ng-template>
+        </p-panel>
       </div>
-      <ng-template #noInfo>
-        <p>No Data!</p>
-      </ng-template>
       <div>
         <img [src]="profile?.image?.image" width="250" />
         <p *ngIf="profile?.image?.fileName">File Name: <strong>{{profile?.image?.fileName}}</strong></p>

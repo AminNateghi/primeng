@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SummeryComponent } from './summery.component';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { PanelModule } from 'primeng/panel'
 import { PipeModule } from 'src/app/pipe.module';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { PipeModule } from 'src/app/pipe.module';
     CommonModule,
     CardModule,
     ButtonModule,
+    PanelModule,
     PipeModule
   ],
   exports: [
