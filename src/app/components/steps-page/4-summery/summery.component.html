@@ -5,9 +5,35 @@
   <ng-template pTemplate="subtitle">
     Your card details
   </ng-template>
+
   <ng-template pTemplate="content">
-    Summery
+
+    <div class="grid grid-nogutter justify-content-between">
+      <div *ngIf="profile?.info; else noInfo">
+        <div class="field">
+          <p for="class">Amount: <strong>{{profile?.info?.amount}}</strong></p>
+        </div>
+        <div class="field">
+          <p for="class">Date: <strong>{{profile?.info?.date | date}}</strong></p>
+        </div>
+        <div class="field">
+          <p for="class">Status: <strong>{{profile?.info?.status | StatusAsStringPipe:status}}</strong></p>
+        </div>
+        <div class="field">
+          <p for="class">Fund name: <strong>{{profile?.info?.fund}}</strong></p>
+        </div>
+      </div>
+      <ng-template #noInfo>
+        <p>No Data!</p>
+      </ng-template>
+      <div>
+        <img [src]="profile?.image?.image" width="250" />
+        <p *ngIf="profile?.image?.fileName">File Name: <strong>{{profile?.image?.fileName}}</strong></p>
+      </div>
+    </div>
+
   </ng-template>
+
   <ng-template pTemplate="footer">
     <div class="grid grid-nogutter justify-content-between">
       <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>

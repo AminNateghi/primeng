@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SummeryComponent } from './summery.component';
-import { ProfileService } from 'src/app/shared/services/profile.service';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { PipeModule } from 'src/app/pipe.module';
 
 @NgModule({
   declarations: [
@@ -13,12 +13,10 @@ import { CardModule } from 'primeng/card';
     CommonModule,
     CardModule,
     ButtonModule,
+    PipeModule
   ],
   exports: [
     SummeryComponent
   ],
-  providers: [
-    ProfileService
-  ]
 })
 export class SummeryModule { }
