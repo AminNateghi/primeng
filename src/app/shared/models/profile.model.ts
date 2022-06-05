@@ -1,3 +1,5 @@
+import { User } from "./user.model";
+
 export interface Profile {
   image: Avatar | null;
   info: Info | null;
@@ -14,12 +16,6 @@ export interface Info {
   date: Date;
   status: InfoStatus;
   fund: string;
-}
-
-export interface User {
-  name: string;
-  family: string;
-  age: number;
 }
 
 export enum InfoStatus {

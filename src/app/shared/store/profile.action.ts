@@ -1,5 +1,6 @@
-import { Action, createAction, props } from '@ngrx/store';
-import { Avatar, Info, User } from '../models/profile.model';
+import { createAction, props } from '@ngrx/store';
+import { Avatar, Info } from '../models/profile.model';
+import { User } from '../models/user.model';
 
 export enum ProfileActionType {
   AddAvatar = '[Profile] Add Avatar',
