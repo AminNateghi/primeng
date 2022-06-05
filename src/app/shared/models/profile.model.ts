@@ -28,3 +28,10 @@ export enum InfoStatus {
   done = 2,
   reject = 3,
 }
+
+export const Status = [
+  { name: 'None', id: 0 },
+  { name: 'Opened', id: 1 },
+  { name: 'Done', id: 2 },
+  { name: 'Reject', id: 3 },
+];
