@@ -5,9 +5,58 @@
   <ng-template pTemplate="subtitle">
     Please fill data.
   </ng-template>
+
   <ng-template pTemplate="content">
-    INFO
+    <form [formGroup]="form">
+      <div class="p-fluid">
+        <div class="field">
+          <label>Amount:</label>
+          <input id="amount" type="number" required pInputText
+          formControlName="amount"
+          [ngClass]="{'ng-dirty': (form.controls['amount'].invalid && submitted) || (form.controls['amount'].dirty && form.controls['amount'].invalid)}">
+          <small class="p-error"
+          *ngIf="(form.controls['amount'].invalid && submitted) || (form.controls['amount'].dirty && form.controls['amount'].invalid)">
+            Amount is required.
+          </small>
+        </div>
+
+        <div class="field">
+          <label>Date:</label>
+          <p-calendar formControlName="date" [dateFormat]="'yy/mm/dd'" [minDate]="minDate" [maxDate]="maxDate"
+          [showIcon]="true" inputId="icon" [required]="true"
+          [ngClass]="{'ng-dirty':(form.controls['date'].invalid && submitted) || (form.controls['date'].dirty && form.controls['date'].invalid)}">
+          </p-calendar>
+          <small class="p-error"
+          *ngIf="(form.controls['date'].invalid && submitted) || (form.controls['date'].dirty && form.controls['date'].invalid)">
+            Date is required.
+          </small>
+        </div>
+
+        <div class="field">
+          <label>Status:</label>
+          <p-dropdown [required]="true" inputId="class" formControlName="status" [options]="status"
+          optionLabel="name" placeholder="Select a status"></p-dropdown>
+          <small class="p-error"
+          *ngIf="(form.controls['status'].invalid && submitted) || (form.controls['status'].dirty && form.controls['status'].invalid)">
+            Status is required.
+          </small>
+        </div>
+
+        <div class="field">
+          <label>Fund Name:</label>
+          <input type="text" required pInputText
+          formControlName="fund"
+          [ngClass]="{'ng-dirty': (form.controls['fund'].invalid && submitted) || (form.controls['fund'].dirty && form.controls['fund'].invalid)}">
+          <small class="p-error"
+          *ngIf="(form.controls['fund'].invalid && submitted) || (form.controls['fund'].dirty && form.controls['fund'].invalid)">
+            Fund is required.
+          </small>
+        </div>
+
+      </div>
+    </form>
   </ng-template>
+
   <ng-template pTemplate="footer">
     <div class="grid grid-nogutter justify-content-between">
       <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
