@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessagingService } from 'src/app/shared/services/message.service';
-import { ProfileService } from 'src/app/shared/services/profile.service';
 
 @Component({
   selector: 'app-page-info',
@@ -9,7 +8,6 @@ import { ProfileService } from 'src/app/shared/services/profile.service';
   styleUrls: ['./info.component.scss']
 })
 export class InfoComponent implements OnInit {
-
 
   constructor(
     private router: Router,
