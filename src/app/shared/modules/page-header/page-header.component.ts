@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessageService } from '../../services/message.service';
+import { MessagingService } from '../../services/message.service';
 
 @Component({
   selector: 'app-page-header',
@@ -12,7 +12,7 @@ export class PageHeaderComponent {
   subTitle = '-';
 
   constructor(
-    private messageService: MessageService
+    private messageService: MessagingService
   ) {
     this.messageService.pageHeaderState.subscribe(result => {
       this.title = result.title;

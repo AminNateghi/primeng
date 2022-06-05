@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'src/app/shared/services/message.service';
+import { MessagingService } from 'src/app/shared/services/message.service';
 
 @Component({
   selector: 'app-page-home',
@@ -9,7 +9,7 @@ import { MessageService } from 'src/app/shared/services/message.service';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private messageService: MessageService
+    private messageService: MessagingService
   ) { }
 
   ngOnInit() {

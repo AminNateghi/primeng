@@ -18,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'steps',
-        loadChildren: () => import('./components/steps/steps.module').then(m => m.StepsModule)
+        loadChildren: () => import('./components/steps-page/steps-page.module').then(m => m.StepsPageModule)
       }
     ]
   }
