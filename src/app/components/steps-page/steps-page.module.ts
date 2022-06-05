@@ -6,6 +6,7 @@ import { StepModule } from './steps/steps.module';
 import { StoreModule } from '@ngrx/store';
 import { profileReducer } from 'src/app/shared/store/profile.reducer';
 import { HttpClientModule } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -16,5 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     StepModule,
   ],
+  providers: [
+    MessageService
+  ]
 })
 export class StepsPageModule { }
