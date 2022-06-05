@@ -1,14 +1,3 @@
-<!-- <div class="card">
-  <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
-  [multiple]="false" accept="image/*" [maxFileSize]="1000000">
-    <ng-template pTemplate="content">
-      <div *ngIf="selectedFile.length">
-        <p>{{selectedFile.name}} - {{selectedFile.size}} bytes</p>
-      </div>
-    </ng-template>
-  </p-fileUpload>
-</div> -->
-
 <p-card>
   <ng-template pTemplate="title">
     Upload Image
@@ -16,9 +5,20 @@
   <ng-template pTemplate="subtitle">
     Select image to upload
   </ng-template>
+
   <ng-template pTemplate="content">
-    UPLOAD
+    <p-fileUpload mode="basic" chooseLabel="Browse" [name]="selectedFile" [customUpload]="true"
+    (onSelect)="onUpload($event)"
+    [multiple]="false" accept="image/*" [maxFileSize]="1000000">
+      <ng-template pTemplate="content">
+        <p *ngIf="selectedFile">{{selectedFile?.name}} - {{selectedFile?.size}} bytes</p>
+      </ng-template>
+    </p-fileUpload>
+
+    <img [src]="avatar" width="250" />
+    <p *ngIf="fileName">File Name: <strong>{{fileName}}</strong></p>
   </ng-template>
+
   <ng-template pTemplate="footer">
     <div class="grid grid-nogutter justify-content-end">
       <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
